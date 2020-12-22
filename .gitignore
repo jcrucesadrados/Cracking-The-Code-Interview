@@ -21,3 +21,12 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
+
+/.metadata/
+chapter4TreesAndGraphs/.classpath
+
+chapter4TreesAndGraphs/.settings/
+
+chapter4TreesAndGraphs/.project
+
+chapter4TreesAndGraphs/src/module-info.java
