@@ -26,11 +26,11 @@ If the queue (the LinkedList) gets empty, then and we haven't aborted the algori
 ## Español
 Dado un grafo directo (graph direct), diseñar un algoritmo para determinar si existe una ruta entre dos nodos.
 
-## Pistas
+### Pistas
 
 - **127:** Hay dos algoritmos bien conocidos que pueden hacer esto. ¿Cuáles son las diferencias entre ellos?
 
-## Cómo proceder
+### Cómo proceder
 Dado que estamos recorriendo (buscando) dentro de un grafo, existen dos posibles algoritmos con los que se puede proceder: DFS o BFS. Para la búsqueda de rutas o caminos la opción es
 emplar BFS.
 
