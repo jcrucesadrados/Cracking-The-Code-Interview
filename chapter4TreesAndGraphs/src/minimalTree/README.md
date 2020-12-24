@@ -16,34 +16,27 @@ to repeatedly traverse the tree. Try recursion instead. Can you divide this prob
 Could you use this to operate on the root of the tree? Could you write the base case for the function? Great! Then that's basically the entire function.
 
 ### How to proceed
-A Binary Search Tree (BST) is a binary tree where, given a node, the child node of the left is always lower than the right one. So, if we have a sorted array (increasing order)
-like the next \[1,2,3,4,5,6,7,8,9,10,11\] we can set the root node as the median (the centre position). At the side branches we need to append both sides of the array. Then,
-once we have selected the middle node (6 in this case):
+A Binary Search Tree (BST) is a binary tree where, given a node, the child node of the left is always lower than the right one. So, if we have a sorted array (increasing order) like the next \[1,2,3,4,5,6,7,8,9,10,11\] we can set the root node as the median (the centre position). At the side branches we need to append both sides of the array. Then, once we have selected the middle node (6 in this case), there will be a root node and then, the the two halves of the array must hang from the parent node.
 
-The status of the array is \[1,2,3,4,5,X,7,8,9,10,11\]
-And the status of the BST is
+![Alt text](https://github.com/jcrucesadrados/Cracking-The-Code-Interview/blob/master/chapter4TreesAndGraphs/readme_resources/ch4/4.2/0.PNG "1st step")
 
-						  6
-					  /       \
-                 [1,2,3,4,5]  [7,8,9,10,11]
+\[1,2,3,4,5\]  \[7,8,9,10,11\]
  
-Next, we need to repeat again the process with the two branches: Select the middle node and append the sides:
+Next, we need to repeat the process with the two branches: Select the middle node and append the sides:
 
-						  6
-				   /             \
-				   3	         9
-               /     \        /     \     
-            [1,2]  [4,5]   [7,8] [10,11]
+![Alt text](https://github.com/jcrucesadrados/Cracking-The-Code-Interview/blob/master/chapter4TreesAndGraphs/readme_resources/ch4/4.2/1.PNG "2nd step")
+
+\[1,2\]  \[4,5\]   \[7,8\] \[10,11\]
 
 And again for each new array:
 
-	                      6
-				   /             \
-				  3	             9
-               /     \        /     \     
-              2       5      8      11
-			 /        /     /       /
-           [1]      [4]   [7]    [10]
+![Alt text](https://github.com/jcrucesadrados/Cracking-The-Code-Interview/blob/master/chapter4TreesAndGraphs/readme_resources/ch4/4.2/2.PNG "Title")
+
+\[1,2\]  \[4,5\]   \[7,8\] \[10,11\]
+
+Finally 
+
+![Alt text](https://github.com/jcrucesadrados/Cracking-The-Code-Interview/blob/master/chapter4TreesAndGraphs/readme_resources/ch4/4.2/3.PNG "Title")
 
 As we can see, this is an iterative process (recursive) so we need to implement a method that select the middle position, create a node and then repeat with the
 two sides arrays.
@@ -62,35 +55,26 @@ el árbol. Prueba en su lugar la recursión. ¿Puedes dividir este problema en s
 
 ### Cómo proceder
 
-Un árbol de búsqueda binario (BST) es un árbol binario donde, dado un nodo, el nodo hijo de la izquierda siempre es menor que el de la derecha. De esta forma, si se tiene un array ordenado
-(en orden ascendente) como el siguiente \[1,2,3,4,5,6,7,8,9,10,11\] podemos obtener el nodo raíz como la mediana (la posición central). En las ramas laterales será necesario añadir las dos partes del array
-así que una vez que se ha seleccionado el nodo central (6  en este caso):
+Un árbol de búsqueda binario (BST) es un árbol binario donde, dado un nodo, el nodo hijo de la izquierda siempre es menor que el de la derecha. De esta forma, si se tiene un array ordenado (en orden ascendente) como el siguiente \[1,2,3,4,5,6,7,8,9,10,11\] podemos obtener el nodo raíz como la mediana (la posición central). En las ramas laterales será necesario añadir las dos partes del array así que una vez que se ha seleccionado el nodo central (6  en este caso), habrá un nodo raíz y entonces las dos mitades del array deberán colgar del nodo padre.
 
-El array se queda de la siguiente forma: \[1,2,3,4,5,X,7,8,9,10,11\]
-El se comienza a montar el árbol binario de la siguiente forma:
+![Alt text](https://github.com/jcrucesadrados/Cracking-The-Code-Interview/blob/master/chapter4TreesAndGraphs/readme_resources/ch4/4.2/0.PNG "1st step")
 
-						  6
-					  /       \
-                 [1,2,3,4,5]  [7,8,9,10,11]
+\[1,2,3,4,5\]  \[7,8,9,10,11\]
+ 
+Después, será necesario repetir el proceso con las dos ramas: Seleccionar el nodo de enmedio y colgar las dos partes:
 
-Después, es necesario repetir el proceso de nuevo con  las dos ramas: Seleccionamos el nodo central y se añaden los lados:
+![Alt text](https://github.com/jcrucesadrados/Cracking-The-Code-Interview/blob/master/chapter4TreesAndGraphs/readme_resources/ch4/4.2/1.PNG "2nd step")
 
+\[1,2\]  \[4,5\]   \[7,8\] \[10,11\]
 
-						  6
-				   /             \
-				   3	       9
-               /     \        /     \     
-            [1,2]  [4,5]   [7,8] [10,11]
-			
-Y volvemos a repetir para cada uno de los nuevos arrays:
+Y de nuevo, para cada uno de los arrays..
 
-						  6
-				   /             \
-				  3	             9
-               /     \        /     \     
-              2       5      8      11
-			 /        /     /       /
-           [1]      [4]   [7]    [10]
+![Alt text](https://github.com/jcrucesadrados/Cracking-The-Code-Interview/blob/master/chapter4TreesAndGraphs/readme_resources/ch4/4.2/2.PNG "Title")
 
-Como se puede observar, se trata de un proceso iterativo (recursivo) así que necesitamos implementar un método que seleccione la posición central, crear el nodo y entonces repetir con los
-dos lados del array.
+\[1,2\]  \[4,5\]   \[7,8\] \[10,11\]
+
+Finalmente 
+
+![Alt text](https://github.com/jcrucesadrados/Cracking-The-Code-Interview/blob/master/chapter4TreesAndGraphs/readme_resources/ch4/4.2/3.PNG "Title")
+
+Como se puede observar, se trata de un proceso iterativo (recursivo) así que necesitamos implementar un método que seleccione la posición central, crear el nodo y entonces repetir con los dos lados del array.
