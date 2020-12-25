@@ -1,4 +1,4 @@
-package ListOfDepths;
+package listOfDepths;
 
 import java.util.ArrayList;
 import java.util.HashSet;
